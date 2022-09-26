@@ -1,0 +1,38 @@
+{
+    "name": "Amports React",
+    "description": "Amdocs Imports - All the links needed in one place",
+    "version": "1.2",
+    "permissions": [
+        "<all_urls>",
+        "tabs",
+        "activeTab",
+        "downloads",
+        "contextMenus"
+    ],
+    "content_security_policy": {
+        "extension_pages": "default-src 'self'"
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_popup": "sources/index.html"
+    },
+    "background": {
+        "service_worker": "scripts/background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "scripts/content.js"
+            ]
+        }
+    ],
+    "manifest_version": 3
+}

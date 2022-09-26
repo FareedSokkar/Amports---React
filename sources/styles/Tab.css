@@ -1,0 +1,34 @@
+.tab{
+        /* height: 50px; */
+        width: 100%;
+        background-color: #232630;
+        border-radius: 10px;
+        margin: 5px auto;
+        /* position: relative;
+        vertical-align: middle; */
+        color: #aaa;
+        font-size: large;
+        text-align: center;
+        line-height: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        /* Border */
+        border-bottom: 10px solid;
+        border-image-slice: 1;
+        border-width: 5px;
+        border-image-source: linear-gradient(90deg,#343a40 1%,#adb5bd 100%);
+    
+}
+.tab:hover{
+        /* background-clip: padding-box;
+    border: solid 5px transparent;
+    background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    background-color:#023047; */
+    border-bottom: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    cursor: pointer;
+    transition: border-image-source 1s ease-in-out 0;
+    color: #fff;
+}

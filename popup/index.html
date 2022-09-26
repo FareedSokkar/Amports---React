@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Amdocs Helper</title>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <img src="/popup/amports.png" alt="logo" id="logo">
+        </div>
+        <div id="staticip">
+            <label for=""><i class="fa fa-university fav_ico"></i>Master</label>
+            <div id="master_ip">
+                <input type="text" value="10.247.158.221" disabled>
+                <button>Edit</button>
+            </div>
+        </div>
+        <div id="staticip">
+            <label for=""><i class="fa fa-male fav_ico"></i>User</label>
+            <div id="user_ip">
+                <input type="text" value="10.247.158.242" disabled>
+                <button>Edit</button>
+            </div>
+        </div>
+        <div id="cookie_control">
+            <label for="">Cookie Control</label>
+            <hr>
+            <span><i class="fa fa-university fav_ico"></i><span id="master_date">NONE</span></span><br/>
+            <span><i class="fa fa-male fav_ico"></i><span  id="user_date">NONE</span></span><br/>
+            <i class="fa fa-refresh" id="i_refresh">   Refresh (30 days)</i> |
+            <i class="fa fa-trash" id="i_trash">   Delete (for IPs)</i>
+        </div>
+        <div id="body"></div>
+        <div id="footer">Copyrights © Amdocs 2021 - developed by Fareed Sokkar</div>
+    </div>
+</body>
+<script src="init.js"></script>
+<script src="init_config.js"></script>
+<script src="popup.js"></script>
+</html>

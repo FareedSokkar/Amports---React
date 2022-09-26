@@ -1,0 +1,198 @@
+body{
+    height: 500px;
+    width: 400px;
+    background-color: #131318;
+}
+img#logo{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* width: 60%; */
+    cursor: pointer;
+}
+div#header,div#footer{
+    text-align: center;
+    color: #fff;
+}
+div#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 15px;
+    background-color: #131318;
+}
+div.example,.UI_content{
+    /* height: 50px; */
+    width: 100%;
+    background-color: #232630;
+    border-radius: 10px;
+    margin: 5px auto;
+    /* position: relative;
+    vertical-align: middle; */
+    color: #aaa;
+    font-size: large;
+    text-align: center;
+    line-height: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* Border */
+    border-bottom: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(90deg,#343a40 1%,#adb5bd 100%);
+}
+div#staticip{
+    text-align: center;
+    padding: 10px auto;
+    margin: 5px;
+}
+label.headers{
+    margin: 15px auto;
+    display: block;
+    text-align: center;
+}
+label.headers:hover{
+    cursor: pointer;
+    background: linear-gradient(90deg,#343a40 1%,#adb5bd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+label.headers>i{
+    position: absolute;
+    left: 40px;
+    background: linear-gradient(0deg,#fff 100%,#fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+div#staticip>label,.headers{
+    font-size: 20px;
+    font-weight: 700;
+    /* color: #c9317f; */
+    background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+div#staticip>div{
+    position: relative;
+    float: right;
+    width: 70%;
+}
+div.example:hover{
+    /* background-clip: padding-box;
+    border: solid 5px transparent;
+    background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    background-color:#023047; */
+    border-bottom: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    cursor: pointer;
+    transition: border-image-source 1s ease-in-out 0;
+    color: #fff;
+
+}
+.hide{
+    display: none;
+}
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #F6B74B, rgba(0, 0, 0, 0));
+}
+div#staticip>div#master_ip>input,div#staticip>div#user_ip>input{
+    background-color: #232630;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 2px;
+    text-align: center;
+    margin-top: 5px;
+}
+div#staticip>div#master_ip>input:disabled,div#staticip>div#user_ip>input:disabled{
+    color: #aaa;
+}
+div#staticip>div#master_ip>button,div#staticip>div#user_ip>button{
+    background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+div#staticip>div#master_ip>button:hover,div#staticip>div#user_ip>button:hover{
+    background: linear-gradient(0deg,#c9317f 1%,#F6B74B 100%);
+    /* transition: background 2s ease-in 1s; */
+}
+
+.UI_content *{
+    display: block;
+    background-color: #343a40;
+    border-radius: 10px;
+    margin: 0 3px 3px;
+    color: #bbb;
+    text-decoration: none;
+}
+.UI_content *:hover{
+    background-color: #adb5bd;
+}
+.UI_content a:visited{
+    color: #fff;
+}
+.UI_content p{
+    font-size: medium;
+    color: #fff;
+    display: inherit;
+    /* line-height: 20px; */
+    text-transform: none;
+}
+.UI_content p:hover{
+    cursor: copy;
+    background-color: #343a40;
+}
+/* cookie_control */
+#cookie_control{
+    color: #aaa;
+    text-align: center;
+    padding: 25px auto;
+    margin: 15px;
+    background-color: #232630;
+    border-radius: 15px;
+}
+#cookie_control>label{
+    width: 100%;
+    display: block;
+    font-size: 20px;
+}
+#cookie_control>i{
+    font-size: 15px;
+    margin: 5px;
+}
+#cookie_control>i:hover{
+    cursor: pointer;
+    color: #fff;
+}
+.fav_ico{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+/* Scroolbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background: #131318;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #232630;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+/* Error Class */
+.red_border{
+    border: 1px solid #ee1133 !important;
+}

@@ -1,0 +1,41 @@
+.staticip{
+    text-align: center;
+    padding: 10px auto;
+    margin: 5px;
+}
+.staticip-label{
+    font-size: 20px;
+    font-weight: 700;
+    /* color: #c9317f; */
+    background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.staticip-data{
+    position: relative;
+    float: right;
+    width: 70%;
+}
+.staticip-input{
+    background-color: #232630;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 2px;
+    text-align: center;
+    margin-top: 5px;
+}
+.staticip-input:disabled{
+    color: #aaa;
+}
+.staticip-button{
+    background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.staticip-button:hover{
+    background: linear-gradient(0deg,#c9317f 1%,#F6B74B 100%);
+}
