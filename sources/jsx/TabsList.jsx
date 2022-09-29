@@ -1,22 +1,20 @@
-function TabsList(props){
+// "use strict";
+console.log("weeeeeeeeeeeee");
+function TabsList(props) {
     const {title,tabsLibs,isToggled} = props;
-    let className = `fa fa-toggle-${isToggled?"on":"off"} tabslist-icon`;
-    return(
-        <div className="tabslist">
-            <label htmlFor="" className="tabslist-label">
-                <i className={className}></i>
-                {title}
-            </label>
-            <div className="tabslist-tabs">
-                {tabsLibs.map(tab=>
-                    <Tab {...tab}/>
-                )}
-            </div>
-            <hr className="tabslist-hr"/>
-        </div>
+    let className = `fa fa-toggle-${isToggled ? "on" : "off"} tabslist-icon`;
+    return (
+        React.createElement("div", {className: "tabslist"}, 
+            React.createElement("label", {htmlFor: "",className: "tabslist-label"}, 
+                React.createElement("i", {className: className}), title), 
+            React.createElement("div", {className: "tabslist-tabs"}, 
+            tabsLibs.map(tab => React.createElement(Tab, tab))), 
+            React.createElement("hr", {className: "tabslist-hr"})
+        )
     );
 }
 
-TabsList.defaultProps={
-    title: "Tabs",isToggled: false
-}
+TabsList.defaultProps = {
+    title: "Tabs",
+    isToggled: false
+};

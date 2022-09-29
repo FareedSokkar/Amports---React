@@ -10,7 +10,7 @@
         "contextMenus"
     ],
     "content_security_policy": {
-        "extension_pages": "default-src 'self'"
+        "extension_pages": "script-src 'self'; object-src 'self'"
     },
     "icons": {
         "16": "icons/icon16.png",

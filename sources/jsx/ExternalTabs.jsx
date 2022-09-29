@@ -1,7 +1,9 @@
-function ExternalTabs(props){
-    return(
-        <div className="externaltabs">
-            <TabsList tabsLibs={tools}/>
-        </div>
+// "use strict";
+
+function ExternalTabs(props) {
+    return (
+        React.createElement("div", {className: "externaltabs"}, 
+            React.createElement(TabsList, {tabsLibs: tools})
+        )
     );
 }

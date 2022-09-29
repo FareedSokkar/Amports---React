@@ -1,9 +1,7 @@
-function CookieControl(props){
-    return(
-        <div className="cookie-control">
-            <label htmlFor="" className="cookie-control-label">
-                Cookie Control
-            </label>
-        </div>
-    );
+// "use strict";
+
+function CookieControl(props) {
+    return React.createElement("div", {className: "cookie-control"},
+                React.createElement("label", {htmlFor: "",className: "cookie-control-label"}, "Cookie Control")
+            );
 }
