@@ -27,10 +27,10 @@ function Tab(props) {
     function onTabClick(e) {
         let link;
         if (ip === "external") {
-            link = `http://${path}`;
+            link = `https://${path}`;
         } else if (ip === "master" || ip === "user") {
             ipHost = "10.0.0.127"; // get ip
-            link = `http://${ipHost}/${path}`;
+            link = `https://${ipHost}/${path}`;
         }
         if (link) {
             sendRedirect(link);
