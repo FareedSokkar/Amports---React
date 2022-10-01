@@ -1,0 +1,19 @@
+.cookie-control{
+    color: #aaa;
+    text-align: center;
+    padding: 25px auto;
+    margin: 15px;
+    background-color: #232630;
+    border-radius: 15px;
+}
+.cookie-control{
+    font-size: 15px;
+    margin: 5px;
+}
+.cookie-control-icon{
+    margin: 0 3px;
+}
+.cookie-control-icon:hover{
+    cursor: pointer;
+    color: #fff;
+}

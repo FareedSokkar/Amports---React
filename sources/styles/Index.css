@@ -4,6 +4,15 @@ body{
     width: 400px;
     background-color: #131318;
 }
+.fav_ico{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    display: inline;
+}
+.hide{
+    display: none;
+}
 /* Scroolbar */
 /* width */
 ::-webkit-scrollbar {

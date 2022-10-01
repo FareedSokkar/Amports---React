@@ -1,7 +1,5 @@
-// "use strict";
-
 function Tab(props) {
-    const {id,ip,name,path,icon,icoType} = props; 
+    const {id,ip,name,path,icon,icoType,ipHost} = props; 
     // Functions
     function getIconElement(ip, icon, icoType) {
         const user = "male",master = "university",def = "default";
@@ -26,11 +24,16 @@ function Tab(props) {
 
     function onTabClick(e) {
         let link;
-        if (ip === "external") {
-            link = `https://${path}`;
-        } else if (ip === "master" || ip === "user") {
-            ipHost = "10.0.0.127"; // get ip
-            link = `https://${ipHost}/${path}`;
+        switch(ip){
+            case ipTypes.ExternalLink:
+                link = `https://${path}`;
+                break;
+            case ipTypes.Master:
+            case ipTypes.User:
+                link = `https://${ipHost}/${path}`;
+                break;
+            default:
+                link = null;
         }
         if (link) {
             sendRedirect(link);

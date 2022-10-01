@@ -1,7 +1,7 @@
 .staticip{
     text-align: center;
     padding: 10px auto;
-    margin: 5px;
+    margin: 6px;
 }
 .staticip-label{
     font-size: 20px;
@@ -10,6 +10,11 @@
     background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-transform: capitalize;
+}
+.staticip-mini{
+    display: inline-block;
+    width: 47%;
 }
 .staticip-data{
     position: relative;
@@ -27,6 +32,7 @@
 }
 .staticip-input:disabled{
     color: #aaa;
+    cursor: not-allowed;
 }
 .staticip-button{
     background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);

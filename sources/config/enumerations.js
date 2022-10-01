@@ -10,3 +10,7 @@ const ipTypes = {
     ToolBlock: "gt_block",
     ToolBuild: "gt_build"
 }
+const buttonsText = {
+    ipToggleOnEdit: "Save",
+    ipToggleOffEdit: "Edit"
+}
