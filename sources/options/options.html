@@ -2,28 +2,36 @@
 <html>
 
 <head>
-    <title>My Test Extension Options</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="../core/font-awesome.min.css">
+  <title>Amports Options</title>
+  <!-- CSS Files -->
+
 </head>
-
 <body>
+  <!-- Root element -->
+  <div id="root"></div>
 
-    Favorite color:
-    <select id="color">
-        <option value="red">red</option>
-        <option value="green">green</option>
-        <option value="blue">blue</option>
-        <option value="yellow">yellow</option>
-    </select>
+  <!-- Core -->
+  <script src="../core/react.development.js"></script>
+  <script src="../core/react-dom.development.js"></script>
 
-    <label>
-        <input type="checkbox" id="like">
-        I like colors.
-    </label>
+  <!-- Enumeration -->
+  <script src="../config/enumerations.js"></script>
+  <!-- Initial Data -->
+  <script src="../config/env_config.js"></script>
+  <script src="../config/env_init.js"></script>
 
-    <div id="status"></div>
-    <button id="save">Save</button>
+  <!-- JSX -->
 
-    <script src="options.js"></script>
+  <script src="jsx/EnvSelect.jsx"></script>
+  <script src="jsx/EnvOptions.jsx"></script>
+  <!-- Main App cComponent -->
+  <script src="jsx/EnviromentList.jsx"></script>
 </body>
 
 </html>
