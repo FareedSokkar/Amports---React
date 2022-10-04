@@ -1,0 +1,81 @@
+.env-button{
+    position: relative;
+    display: inline-flex;
+    width: 40%;
+    white-space: nowrap;
+    max-width: 500px;
+    margin: 32px 20px 0;
+}
+.env-button:not(:last-child) {
+    margin-bottom: 32px;
+}
+.env-button:hover>.env-button-label:not(.env-button-label-disabled){
+    color: #fff;
+    background: #678efe;
+    border-color: #275efe;
+    cursor: pointer;
+}
+.env-button:hover>.env-button-label.env-button-label-disabled{
+    color: #fff;
+    background: #ee171b;
+    border-color: #fe272b;
+    cursor: no-drop;
+}
+.env-button-label{
+    white-space: nowrap;
+    display: block;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #99a3ba;
+    background: #eef4ff;
+    border: 1px solid #cdd9ed;
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+.env-button-label:not(:first-child):not(:last-child), .env-button-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+.env-button-label:first-child, .env-button-button:first-child {
+    border-radius: 6px 0 0 6px;
+}
+.env-button-label:last-child, .env-button-button:last-child {
+    border-radius: 0 6px 6px 0;
+}
+.env-button-label:not(:first-child), .env-button-button:not(:first-child) {
+    margin-left: -1px;
+}
+.env-button-button{
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    color: #99A3BA;
+    border: 1px solid #CDD9ED;
+    background: #fff;
+    transition: border .3s ease;
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.env-button-button::placeholder{
+    color: #CBD1DC;
+}
+.env-button-button:hover:not(:disabled){
+    outline: none;
+    border-color: #275EFE;
+    cursor: pointer;
+}
+.env-button-button:hover:disabled{
+    cursor: not-allowed;
+    border-color: #fe272b;
+}

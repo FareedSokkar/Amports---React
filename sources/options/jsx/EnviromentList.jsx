@@ -4,14 +4,20 @@ function EnviromentList(props) {
     const { list } = props;
     return (
         React.createElement("div", {className: "enviroment-list"}, 
-            list.map((item, i) => React.createElement(EnvOptions, {key: i,preDefined: item}))
+            React.createElement("h1",{className:"enviroment-list-header"},
+            `Amports Enviroment Options`),
+            list.map((item, i) => React.createElement(EnvOptions, {key: i,preDefined: item,index: i}))
+            ,React.createElement(EnvButton,{
+                buttonText: "Add",
+                isDisabled: false
+            })
         )
     );
 }
 
 let envList;
 function restore_options() {
-    chrome.storage.sync.get(
+    chrome.storage.local.get(
         { "envList": [] },
         function (list) {
             envList = list.envList;

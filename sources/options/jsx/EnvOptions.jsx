@@ -1,5 +1,5 @@
 function EnvOptions(props){
-    const {preDefined} = props;
+    const {index,preDefined} = props;
 
     let initState = {
         edit: true,
@@ -19,6 +19,8 @@ function EnvOptions(props){
 
     return (
         React.createElement("div",{className:"env-options"},
+            React.createElement("h2",{className:"env-options-header"},
+            `Enviroment ${index}`),
             React.createElement(EnvSelect, {
                 list: Object.values(EnviromentTypes),
                 listName: "Enviroment Type",
@@ -30,6 +32,14 @@ function EnvOptions(props){
                 type:selectedType,
                 isEditable: isEditable,
                 ...initState.config
+            }),
+            React.createElement(EnvButton,{
+                buttonText: "Edit",
+                isDisabled: isEditable
+            }),
+            React.createElement(EnvButton,{
+                buttonText: "Save",
+                isDisabled: !isEditable
             })
         )
         

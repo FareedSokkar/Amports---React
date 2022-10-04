@@ -18,7 +18,7 @@ function concatConfiguration(){
 }
 
 function save_configuration(){
-    chrome.storage.sync.set({"envList":shared_enviroments},
+    chrome.storage.local.set({"envList":shared_enviroments},
     function(){
         console.log("Saved Successfully");
     })

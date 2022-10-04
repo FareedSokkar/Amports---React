@@ -1,0 +1,20 @@
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+* {
+    box-sizing: inherit;
+}
+*:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    min-height: 100vh;
+    font-family: 'Mukta Malar', Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #f5f9ff;
+    text-align: center;
+}

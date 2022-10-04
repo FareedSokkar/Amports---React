@@ -11,7 +11,7 @@ function EnvSelect(props) {
 
     return (
         React.createElement("div", {className: "env-select"},
-            React.createElement("label",{},listName)
+            React.createElement("label",{className: "env-select-label"},listName)
             ,React.createElement("select", {
                 name: "",id: "",className: "env-select-select",
                 onChange: onOptionChange,defaultValue:defaultValue, disabled: !isEditable
