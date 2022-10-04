@@ -14,6 +14,14 @@ const personal_enviroments = [
 // Concat configuration
 function concatConfiguration(){
     shared_enviroments = shared_enviroments.concat(personal_enviroments);
+    save_configuration();
+}
+
+function save_configuration(){
+    chrome.storage.sync.set({"envList":shared_enviroments},
+    function(){
+        console.log("Saved Successfully");
+    })
 }
 
 concatConfiguration();
