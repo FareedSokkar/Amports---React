@@ -1,0 +1,11 @@
+.env-icon{
+    float: right;
+}
+.env-icon-icon{
+    font-size: 25px;
+    color: #275EFE
+}
+.env-icon-icon:hover{
+    cursor: pointer;
+    color: #99a3ba
+}

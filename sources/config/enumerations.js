@@ -14,3 +14,6 @@ const buttonsText = {
     ipToggleOnEdit: "Save",
     ipToggleOffEdit: "Edit"
 }
+const IconsFontAwesome ={
+    Trash: "trash"
+}

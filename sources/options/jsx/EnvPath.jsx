@@ -9,6 +9,10 @@ function EnvPath(props) {
 
     return (
         React.createElement("div", {className: "env-path"}, 
+            React.createElement(EnvIcon,{
+                onClick: null, 
+                icon: IconsFontAwesome.Trash
+            }),
             React.createElement("h4", {className: "env-path-header"},`Path ${index}`), 
             React.createElement(EnvInput, {
                 inputName: "ID",

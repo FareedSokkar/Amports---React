@@ -81,8 +81,16 @@ function EnvOptions(props){
         }
     }
 
+    function deleteEnviroment(){
+        
+    }
+
     return (
         React.createElement("div",{className:"env-options"},
+            React.createElement(EnvIcon,{
+                onClick: null, 
+                icon: IconsFontAwesome.Trash
+            }),
             React.createElement("h2",{className:"env-options-header"},
             `Enviroment ${index}`),
             React.createElement(EnvSelect, {
