@@ -1,8 +1,8 @@
 function EnvInput(props) {
-    const { inputType, inputName, setInputValue, defaultValue, isEditable } = props;
+    const { inputType, inputName, setInputValue, changeKey, defaultValue, isEditable } = props;
 
     function onValueChange(e) {
-        setInputValue(e.taget.value);
+        setInputValue(changeKey,e.target.value);
     }
 
     return (

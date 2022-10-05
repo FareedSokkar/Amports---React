@@ -1,10 +1,16 @@
 function EnvOptions(props){
-    const {index,preDefined} = props;
+    const {index,preDefined,dataForm,setDataForm} = props;
 
     let initState = {
         edit: true,
         selected: "",
-        config: {}
+        config: {
+            type: "",
+            configration:{
+                list:[],
+                title: ""
+            }
+        }
     };
     if(preDefined && preDefined.type && preDefined.configration){
         initState = {
@@ -16,6 +22,64 @@ function EnvOptions(props){
 
     const [isEditable,setIsEditable] = React.useState(initState.edit);
     const [selectedType,setSelectedType] = React.useState(initState.selected);
+    const [currentConfig,setCurrentConfig] = React.useState(initState.config);
+
+    function onSelectChange(key,value){
+        let obj = Object.assign({},preDefined);
+        obj[key]=value;
+        setSelectedType(value);
+        setCurrentConfig(obj.configration);
+        setDataForm(dataForm.map(
+            (el,i)=>{
+                if(i == index){
+                    return obj;
+                }else{
+                    return el;
+                }
+            }
+        ))
+    }
+
+    function changeCurrentConfig(key,value){
+        let obj=Object.assign({},currentConfig);
+        obj[key]=value;
+        setCurrentConfig(obj);
+    }
+
+    function validateEnviromentData(){
+        return true;
+    }
+
+    function onEditClick(e){
+        if(!isEditable){
+            setIsEditable(true);
+        }
+    }
+
+    function onSaveClick(e){
+        //validate Enviroment
+        if(validateEnviromentData()){
+            //Save content
+            setDataForm(
+                dataForm.map(
+                    (el,i)=>{
+                        if(i == index){
+                            return currentConfig;
+                        }else{
+                            return el;
+                        }
+                    }
+                )
+            )
+            // tpggle editablity 
+            if(isEditable){
+                setIsEditable(false);
+            }
+        }else{
+            // message issue
+
+        }
+    }
 
     return (
         React.createElement("div",{className:"env-options"},
@@ -24,22 +88,26 @@ function EnvOptions(props){
             React.createElement(EnvSelect, {
                 list: Object.values(EnviromentTypes),
                 listName: "Enviroment Type",
-                setSelectedType:setSelectedType,
                 defaultValue: initState.selected,
-                isEditable: isEditable
+                isEditable: isEditable,
+                changeKey: "type",
+                setSelectedType:onSelectChange
             }),
             React.createElement(EnvConfig,{
                 type:selectedType,
                 isEditable: isEditable,
-                ...initState.config
+                ...currentConfig,
+                changeCurrentConfig:changeCurrentConfig
             }),
             React.createElement(EnvButton,{
                 buttonText: "Edit",
-                isDisabled: isEditable
+                isDisabled: isEditable,
+                onClick: onEditClick
             }),
             React.createElement(EnvButton,{
                 buttonText: "Save",
-                isDisabled: !isEditable
+                isDisabled: !isEditable,
+                onClick: onSaveClick
             })
         )
         

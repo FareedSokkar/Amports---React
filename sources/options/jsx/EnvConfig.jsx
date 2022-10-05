@@ -1,5 +1,7 @@
 function EnvConfig(props){
-    const {type,isEditable,title,list,innerHtml_block,innerHtml_build} = props;
+    const {type,isEditable,title,list,innerHtml_block,innerHtml_build,changeCurrentConfig} = props;
+    
+
     function getConfigPerType(type){
         let configList = [];
         switch(type){
@@ -9,9 +11,15 @@ function EnvConfig(props){
                 configList.push(React.createElement(EnvInput, {
                     inputName: "Title",
                     defaultValue: title,
-                    isEditable: isEditable
+                    isEditable: isEditable,
+                    changeKey: "title",
+                    setInputValue: changeCurrentConfig
                 }));
-                configList.push(React.createElement(EnvPathsList,{list: list,isEditable: isEditable}));
+                configList.push(React.createElement(EnvPathsList,{
+                    list: list,
+                    isEditable: isEditable,
+                    changeCurrentConfig: changeCurrentConfig
+                }));
             break;
             default:
                 configList.push(
