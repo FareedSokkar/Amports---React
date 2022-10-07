@@ -1,34 +1,19 @@
 function EnvOptions(props){
     const {index,preDefined,dataForm,setDataForm} = props;
+    const [isEditable,setIsEditable] = React.useState(false);
+    const [currentChange,setCurrentChange] = React.useState(preDefined);
 
-    let initState = {
-        edit: true,
-        selected: "",
-        config: {
-            type: "",
-            configration:{
-                list:[],
-                title: ""
-            }
-        }
-    };
-    if(preDefined && preDefined.type && preDefined.configration){
-        initState = {
-            edit: false,
-            selected: preDefined.type,
-            config: preDefined.configration
-        };
+    function onIdChange(key,value){
+        let obj = Object.assign({},currentChange);
+        obj[key]=value;
+        setCurrentChange(obj);
     }
 
-    const [isEditable,setIsEditable] = React.useState(initState.edit);
-    const [selectedType,setSelectedType] = React.useState(initState.selected);
-    const [currentConfig,setCurrentConfig] = React.useState(initState.config);
-
     function onSelectChange(key,value){
-        let obj = Object.assign({},preDefined);
+        let obj = Object.assign({},currentChange);
         obj[key]=value;
-        setSelectedType(value);
-        setCurrentConfig(obj.configration);
+        setCurrentChange(obj);
+// Check if need change parent status
         setDataForm(dataForm.map(
             (el,i)=>{
                 if(i == index){
@@ -41,9 +26,9 @@ function EnvOptions(props){
     }
 
     function changeCurrentConfig(key,value){
-        let obj=Object.assign({},currentConfig);
-        obj[key]=value;
-        setCurrentConfig(obj);
+        let obj=Object.assign({},currentChange);
+        obj.configration[key]=value;
+        setCurrentChange(obj);
     }
 
     function validateEnviromentData(){
@@ -64,7 +49,7 @@ function EnvOptions(props){
                 dataForm.map(
                     (el,i)=>{
                         if(i == index){
-                            return currentConfig;
+                            return currentChange;
                         }else{
                             return el;
                         }
@@ -81,30 +66,37 @@ function EnvOptions(props){
         }
     }
 
-    function deleteEnviroment(){
-        
+    function deleteEnviroment(e){
+        setDataForm(dataForm.filter((el,i)=>i!==index));
     }
 
     return (
         React.createElement("div",{className:"env-options"},
             React.createElement(EnvIcon,{
-                onClick: null, 
+                onClick: deleteEnviroment, 
                 icon: IconsFontAwesome.Trash
             }),
             React.createElement("h2",{className:"env-options-header"},
             `Enviroment ${index}`),
+            React.createElement(EnvInput, {
+                inputName: "Env-ID",
+                defaultValue: currentChange.id,
+                isEditable: isEditable,
+                changeKey: "id",
+                setInputValue: onIdChange
+            }),
             React.createElement(EnvSelect, {
                 list: Object.values(EnviromentTypes),
                 listName: "Enviroment Type",
-                defaultValue: initState.selected,
+                defaultValue: preDefined.type,
                 isEditable: isEditable,
                 changeKey: "type",
-                setSelectedType:onSelectChange
+                changeOnSelect:onSelectChange
             }),
             React.createElement(EnvConfig,{
-                type:selectedType,
+                type:currentChange.type,
                 isEditable: isEditable,
-                ...currentConfig,
+                ...currentChange.configration,
                 changeCurrentConfig:changeCurrentConfig
             }),
             React.createElement(EnvButton,{

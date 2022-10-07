@@ -6,7 +6,8 @@ const personal_enviroments = [
                 { id: 'search', ip: ipTypes.Master, name: "search cats", path: "search?q=cats" },
             ],
             title: "Extra env"
-        }
+        },
+        id: "38f79287-4418-402d-a25e-482ed7e28cf7"
     }
 ];
 

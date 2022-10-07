@@ -4,6 +4,9 @@ function EnviromentList(props) {
     const { list } = props;
     const [dataForm,setDataForm] = React.useState(list);
     
+    console.log("%cEnviromentList: dataForm-","color: blue; font-size: 30px;");
+    console.dir(dataForm);
+
     function onAddClick(e){
         setDataForm(
             [
@@ -13,7 +16,8 @@ function EnviromentList(props) {
                     configration:{
                         list:[],
                         title: ""
-                    }
+                    },
+                    id:""
                 }
             ]
         )
@@ -25,7 +29,7 @@ function EnviromentList(props) {
             React.createElement("h1",{className:"enviroment-list-header"},
             `Amports Enviroment Options`),
             dataForm.map((item, i) => React.createElement(EnvOptions, {
-                key: i,
+                key: item.id,
                 preDefined: item,
                 index: i,
                 dataForm:dataForm,

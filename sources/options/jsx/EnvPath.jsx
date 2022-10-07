@@ -27,7 +27,7 @@ function EnvPath(props) {
                 defaultValue: ip,
                 isEditable: isEditable,
                 changeKey: "ip",
-                setSelectedType:valueUpdate
+                changeOnSelect:valueUpdate
             }), 
             React.createElement(EnvInput, {
                 inputName: "Name",

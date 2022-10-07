@@ -6,7 +6,8 @@ let shared_enviroments = [
                 { id: 'search', ip: ipTypes.Master, name: "search cats", path: "search?q=cats" },
             ],
             title: "Fareed's env"
-        }
+        },
+        id:"da2033f3-959e-4d48-9827-0c01ee71f587"
     },
     {
         type: EnviromentTypes.Public,
@@ -15,9 +16,11 @@ let shared_enviroments = [
                 { id: 'coolors',ip: ipTypes.ExternalLink,name: "coolors",path: "coolors.co/palettes/trending",icon: "https://coolors.co/assets/img/favicon.png"},
             ],
             title: "External links"
-        }
+        },
+        id:"5fb2b7d6-468d-466d-8ca3-37003c1a8bf0"
     },
     {
+        id:"5c9516e6-9cc0-4c76-a183-6bdba394d2d6",
         type: EnviromentTypes.Tools,
         configration: {
             list: [

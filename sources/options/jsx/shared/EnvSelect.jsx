@@ -1,12 +1,12 @@
 function EnvSelect(props) {
-    const {list,listName,setSelectedType, changeKey, defaultValue,isEditable} = props;
+    const {list,listName,changeOnSelect, changeKey, defaultValue,isEditable} = props;
 
     function toCapitlized(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
     function onOptionChange(e){
-        setSelectedType(changeKey,e.target.value);
+        changeOnSelect(changeKey,e.target.value);
     }
 
     return (
