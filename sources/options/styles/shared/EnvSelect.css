@@ -6,7 +6,7 @@
     max-width: 500px;
 }
 .env-select:not(:last-child) {
-    margin-bottom: 32px;
+    margin-bottom: var(--data-margin-bottom);
 }
 .env-select:focus-within>.env-select-label{
     color: #fff;

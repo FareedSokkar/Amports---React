@@ -15,5 +15,6 @@ const buttonsText = {
     ipToggleOffEdit: "Edit"
 }
 const IconsFontAwesome ={
-    Trash: "trash"
+    Trash: "trash",
+    WheelChair: "wheelchair-alt"
 }

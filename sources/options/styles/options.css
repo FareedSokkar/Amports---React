@@ -18,3 +18,9 @@ body {
     background: #f5f9ff;
     text-align: center;
 }
+:root{
+    --data-margin-bottom: 10px;
+    --data-margin-top: 10px;
+    --data-margin-left: 10px;
+    --data-margin-right: 10px;
+}

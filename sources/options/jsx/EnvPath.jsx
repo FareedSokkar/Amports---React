@@ -1,8 +1,12 @@
 function EnvPath(props) {
-    const { index, id, ip, name, path, icon, isEditable , onChange , pathslist} = props;
+    const { index, id, ip, name, path, icon, isEditable , onChange , onDelete , pathslist} = props;
+
+    function onDeletePath(e){
+        onDelete(pathslist.filter((el,i)=>i!==index));
+    }
 
     function valueUpdate(key,value){
-        let obj = Object.assign({},pathslist);
+        let obj = Object.assign({},pathslist[index]);
         obj[key]=value;
         onChange(index,obj);
     }
@@ -10,7 +14,7 @@ function EnvPath(props) {
     return (
         React.createElement("div", {className: "env-path"}, 
             React.createElement(EnvIcon,{
-                onClick: null, 
+                onClick: onDeletePath, 
                 icon: IconsFontAwesome.Trash
             }),
             React.createElement("h4", {className: "env-path-header"},`Path ${index}`), 

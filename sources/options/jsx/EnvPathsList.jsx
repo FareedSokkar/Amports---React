@@ -13,6 +13,26 @@ function EnvPathsList(props){
         ))
     }
 
+    function changeList(newList){
+        changeCurrentConfig("list",newList);
+    }
+
+    function onAddClick(e){
+        changeList(
+            [
+                ...list,
+                { 
+                    id: '', 
+                    ip: "", 
+                    name: "", 
+                    path: "",
+                    icon: ""
+                }
+            ]
+        )
+        
+    }
+
     return (
         React.createElement("div",{className: "env-paths-list"},
             React.createElement("h3", {className: "env-paths-list-header"},"Paths List"), 
@@ -22,13 +42,15 @@ function EnvPathsList(props){
                     index:i,
                     isEditable:isEditable,
                     onChange: changeListInIndexAtConfig,
+                    onDelete:changeList,
                     ...path,
-                    pathslist:path
+                    pathslist:list
                 })
             ),
             React.createElement(EnvButton,{
+                onClick: onAddClick,
                 buttonText: "Add",
-                isDisabled: false
+                isDisabled: !isEditable
             })
         )
     );

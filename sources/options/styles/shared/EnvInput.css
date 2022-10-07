@@ -6,7 +6,7 @@
     max-width: 500px;
 }
 .env-input:not(:last-child) {
-    margin-bottom: 32px;
+    margin-bottom: var(--data-margin-bottom);
 }
 .env-input:focus-within>.env-input-label{
     color: #fff;

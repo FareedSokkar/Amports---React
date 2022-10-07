@@ -1,6 +1,6 @@
 function EnvOptions(props){
     const {index,preDefined,dataForm,setDataForm} = props;
-    const [isEditable,setIsEditable] = React.useState(false);
+    const [isEditable,setIsEditable] = React.useState(preDefined.type == "");
     const [currentChange,setCurrentChange] = React.useState(preDefined);
 
     function onIdChange(key,value){
@@ -83,7 +83,8 @@ function EnvOptions(props){
                 defaultValue: currentChange.id,
                 isEditable: isEditable,
                 changeKey: "id",
-                setInputValue: onIdChange
+                setInputValue: onIdChange,
+                isUUID: true
             }),
             React.createElement(EnvSelect, {
                 list: Object.values(EnviromentTypes),
