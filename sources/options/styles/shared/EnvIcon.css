@@ -2,10 +2,21 @@
     float: right;
 }
 .env-icon-icon{
-    font-size: 25px;
     color: #275EFE
 }
 .env-icon-icon:hover{
     cursor: pointer;
     color: #99a3ba
+}
+.env-icon-small{
+    font-size: 15px;
+
+}
+.env-icon-normal{
+    font-size: 25px;
+
+}
+.env-icon-large{
+    font-size: 35px;
+
 }

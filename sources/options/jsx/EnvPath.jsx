@@ -15,7 +15,8 @@ function EnvPath(props) {
         React.createElement("div", {className: "env-path"}, 
             React.createElement(EnvIcon,{
                 onClick: onDeletePath, 
-                icon: IconsFontAwesome.Trash
+                icon: IconsFontAwesome.Trash,
+                size: IconSize.Small
             }),
             React.createElement("h4", {className: "env-path-header"},`Path ${index}`), 
             React.createElement(EnvInput, {
@@ -23,7 +24,8 @@ function EnvPath(props) {
                 defaultValue: id,
                 isEditable: isEditable,
                 changeKey: "id",
-                setInputValue:valueUpdate
+                setInputValue:valueUpdate,
+                isUUID: true
             }), 
             React.createElement(EnvSelect, {
                 list: [ipTypes.Master, ipTypes.User, ipTypes.ExternalLink],

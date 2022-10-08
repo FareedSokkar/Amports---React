@@ -24,7 +24,8 @@ function EnvInput(props) {
                 React.createElement("label", {className: "env-input-label"}, 
                     React.createElement(EnvIcon,{
                         onClick: null, 
-                        icon: IconsFontAwesome.WheelChair
+                        icon: IconsFontAwesome.WheelChair,
+                        size: IconSize.Small
                     })
                 ):
                 null
