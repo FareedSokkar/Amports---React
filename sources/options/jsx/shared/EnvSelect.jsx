@@ -1,5 +1,5 @@
 function EnvSelect(props) {
-    const {list,listName,changeOnSelect, changeKey, defaultValue,isEditable} = props;
+    const {list,listName,changeOnSelect, changeKey, defaultValue,isEditable,isPleaseSelect} = props;
 
     function toCapitlized(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -18,7 +18,11 @@ function EnvSelect(props) {
                 defaultValue:defaultValue, 
                 disabled: !isEditable
             }, 
-                React.createElement("option", {value: "",className: "env-select-option"},"Please Select"),
+                (
+                    isPleaseSelect?
+                    React.createElement("option", {value: "",className: "env-select-option"},"Please Select"):
+                    null
+                ),
                 list.map(
                     (option,i) => React.createElement("option", {key:i,value: option,className: "env-select-option"}, toCapitlized(option))
                 )
@@ -28,5 +32,6 @@ function EnvSelect(props) {
 }
 EnvSelect.defaultProps ={
     defaultValue: "",
-    isEditable: true
+    isEditable: true,
+    isPleaseSelect: true
 }

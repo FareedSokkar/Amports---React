@@ -6,6 +6,11 @@
     max-width: 500px;
     margin: var(--data-margin-top) var(--data-margin-right) var(--data-margin-bottom) var(--data-margin-left);
 }
+.env-button-full-row{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
 .env-button:not(:last-child) {
     margin-bottom: var(--data-margin-bottom);
 }

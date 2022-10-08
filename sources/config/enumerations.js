@@ -23,7 +23,7 @@ const IconSize ={
     Normal: "normal",
     Large: "large"
 }
-const JSONEditor ={
+const JSONEditorVars ={
     ContainerID: "env-json-editor-jsoneditor",
     Templates: {
         Enviroment: {
@@ -38,4 +38,8 @@ const JSONEditor ={
             }
         }
     }
+}
+const ConfigrationEditorType = {
+    AmportsEditor: "Amports Editor",
+    JSONEditor: "JSON Editor"
 }

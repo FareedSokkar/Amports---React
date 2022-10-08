@@ -7,6 +7,8 @@
 }
 .env-select:not(:last-child) {
     margin-bottom: var(--data-margin-bottom);
+    margin-right: auto;
+    margin-left: auto;
 }
 .env-select:focus-within>.env-select-label{
     color: #fff;
