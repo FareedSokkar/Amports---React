@@ -6,9 +6,7 @@ function EnvJSONEditor(props) {
             const container = document.getElementById(JSONEditorVars.ContainerID);
             console.log(container,JSONEditorVars.ContainerID)
             const options = {
-                templates: [
-                    JSONEditorVars.Templates.Enviroment
-                ]
+                templates: Object.values(JSONEditorVars.Templates)
             }
             const editor = new JSONEditor(container, options);
             editor.set(dataList);

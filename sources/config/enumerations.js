@@ -36,10 +36,28 @@ const JSONEditorVars ={
                 'configration': {'list': [],'title': ""},
                 'id':""
             }
+        },
+        Tab: {
+            text: 'Tab',
+            title: 'Insert a Tab Node',
+            className: 'jsoneditor-type-object',
+            field: 'TabTemplate',
+            value: {
+                id: 'contact',
+                ip: "",
+                name: "",
+                path: "",
+                icon: "",
+                icoType: ""
+            }
         }
     }
 }
 const ConfigrationEditorType = {
     AmportsEditor: "Amports Editor",
     JSONEditor: "JSON Editor"
+}
+const IconType ={
+    Image: "image",
+    Icon: "icon"
 }

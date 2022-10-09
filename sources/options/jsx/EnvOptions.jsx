@@ -31,7 +31,45 @@ function EnvOptions(props){
         setCurrentChange(obj);
     }
 
+    function generateUUIDV4(){
+        return uuid.v4()
+    }
+
+    function onGenerateClick(e){
+        onIdChange("id",generateUUIDV4());
+    }
+
     function validateEnviromentData(){
+        function uniqueList(list,key,currentIndex=-1,currentId){
+            let set = new Set();
+            if(currentId){
+                set.add(currentId);
+            }
+            return list.findIndex(
+                (el,i)=>{
+                    if(i !== currentIndex){
+                        if(set.has(el[key])){
+                            return true;
+                        }else{
+                            set.add(el[key]);
+                        }
+                    }
+                    return false;
+                }
+            );
+        }
+        // generated id is unique for enviroment
+        let envErrorIndex = uniqueList(dataForm,"id",index,currentChange.id);
+        console.log(envErrorIndex,dataForm,"id",index,currentChange.id);
+        if(envErrorIndex!==-1){
+            return false;
+        }
+        // Ids of paths are unique to each other
+        let errorIndex = uniqueList(currentChange.configration.list,"id");
+        console.log(errorIndex);
+        if(errorIndex!==-1){
+            return false;
+        }
         return true;
     }
 
@@ -44,18 +82,22 @@ function EnvOptions(props){
     function onSaveClick(e){
         //validate Enviroment
         if(validateEnviromentData()){
-            //Save content
-            setDataForm(
-                dataForm.map(
-                    (el,i)=>{
-                        if(i == index){
-                            return currentChange;
-                        }else{
-                            return el;
-                        }
+            let newDataForm =dataForm.map(
+                (el,i)=>{
+                    if(i == index){
+                        return currentChange;
+                    }else{
+                        return el;
                     }
-                )
-            )
+                }
+            );
+            //Save content
+            chrome.storage.local.set({"envList":newDataForm},
+            function(){
+                console.log(`Successfully Updated Enviroment ${index}`);
+            })
+            // Update component
+            setDataForm(newDataForm);
             // tpggle editablity 
             if(isEditable){
                 setIsEditable(false);
@@ -84,7 +126,8 @@ function EnvOptions(props){
                 isEditable: isEditable,
                 changeKey: "id",
                 setInputValue: onIdChange,
-                isUUID: true
+                isUUID: true,
+                generateUUID: onGenerateClick
             }),
             React.createElement(EnvSelect, {
                 list: Object.values(EnviromentTypes),

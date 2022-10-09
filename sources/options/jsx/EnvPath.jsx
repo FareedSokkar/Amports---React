@@ -1,5 +1,5 @@
 function EnvPath(props) {
-    const { index, id, ip, name, path, icon, isEditable , onChange , onDelete , pathslist} = props;
+    const { index, id, ip, name, path, icon, icoType , isEditable , onChange , onDelete , pathslist} = props;
 
     function onDeletePath(e){
         onDelete(pathslist.filter((el,i)=>i!==index));
@@ -58,6 +58,15 @@ function EnvPath(props) {
                 changeKey: "path",
                 setInputValue:valueUpdate
             }), 
+            React.createElement(EnvSelect, {
+                list: Object.values(IconType),
+                listName: "Icon Type",
+                defaultValue: icoType,
+                isEditable: isEditable,
+                changeKey: "icoType",
+                changeOnSelect: valueUpdate,
+                isPleaseSelect: false
+            }),
             React.createElement(EnvInput, {
                 inputName: "Icon",
                 defaultValue: icon,
@@ -67,4 +76,8 @@ function EnvPath(props) {
             })
         )
     );
+}
+
+EnvPath.defaultProps ={
+    icoType: IconType.Image
 }

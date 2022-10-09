@@ -4,7 +4,7 @@
 .env-icon-icon{
     color: #275EFE
 }
-.env-icon-icon:hover{
+.env-icon-icon:hover:not(.env-icon-icon-disabled){
     cursor: pointer;
     color: #99a3ba
 }
@@ -18,5 +18,7 @@
 }
 .env-icon-large{
     font-size: 35px;
-
+}
+.env-icon-icon-disabled{
+    color: #99a3ba
 }

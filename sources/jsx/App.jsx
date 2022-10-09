@@ -2,6 +2,9 @@
 
 function App(props) {
 
+    const {list} = props;
+    
+
     function createEnviroment(env) {
         let content;
         switch (env.type) {
@@ -19,8 +22,8 @@ function App(props) {
     }
 
     function setEnviromentsList() {
-        if (typeof shared_enviroments !== 'undefined' && Array.isArray(shared_enviroments) && shared_enviroments.length) {
-            return shared_enviroments.map((env) => createEnviroment(env));
+        if (typeof list !== 'undefined' && Array.isArray(list) && list.length) {
+            return list.map((env) => createEnviroment(env));
         } else {
             return (
                 React.createElement("div",{className: "app-no-content"},
@@ -43,6 +46,21 @@ function App(props) {
     );
 }
 
+let envList;
+function restore_options() {
+    chrome.storage.local.get(
+        { "envList": [] },
+        function (list) {
+            envList = list.envList;
+            ReactDOM.createRoot(
+                document.getElementById('root')
+            ).render(
+                React.createElement(App, { list: envList })
+            );
+        }
+    )
+}
+restore_options();
 
 ReactDOM.createRoot(
     document.getElementById('root')

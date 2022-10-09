@@ -25,7 +25,8 @@ function EnvInput(props) {
                     React.createElement(EnvIcon,{
                         onClick: generateUUID, 
                         icon: IconsFontAwesome.WheelChair,
-                        size: IconSize.Small
+                        size: IconSize.Small,
+                        isDisabled: !isEditable
                     })
                 ):
                 null
