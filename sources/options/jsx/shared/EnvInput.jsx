@@ -2,7 +2,7 @@ function EnvInput(props) {
     const { 
         inputType, inputName, setInputValue, 
         changeKey, defaultValue, isEditable,
-        isUUID  
+        isUUID, generateUUID  
     } = props;
 
     function onValueChange(e) {
@@ -23,7 +23,7 @@ function EnvInput(props) {
                 isUUID?
                 React.createElement("label", {className: "env-input-label"}, 
                     React.createElement(EnvIcon,{
-                        onClick: null, 
+                        onClick: generateUUID, 
                         icon: IconsFontAwesome.WheelChair,
                         size: IconSize.Small
                     })

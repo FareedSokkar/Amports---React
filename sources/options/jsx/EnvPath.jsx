@@ -11,6 +11,14 @@ function EnvPath(props) {
         onChange(index,obj);
     }
 
+    function generateUUIDV4(){
+        return uuid.v4()
+    }
+
+    function onGenerateClick(e){
+        valueUpdate("id",generateUUIDV4());
+    }
+
     return (
         React.createElement("div", {className: "env-path"}, 
             React.createElement(EnvIcon,{
@@ -25,7 +33,8 @@ function EnvPath(props) {
                 isEditable: isEditable,
                 changeKey: "id",
                 setInputValue:valueUpdate,
-                isUUID: true
+                isUUID: true,
+                generateUUID: onGenerateClick
             }), 
             React.createElement(EnvSelect, {
                 list: [ipTypes.Master, ipTypes.User, ipTypes.ExternalLink],

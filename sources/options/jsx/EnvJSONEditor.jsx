@@ -20,8 +20,7 @@ function EnvJSONEditor(props) {
         React.createElement("div", {className: "env-json-editor"}, 
             React.createElement("div", {
                 className: "env-json-editor-container",
-                id: JSONEditorVars.ContainerID,
-                style: {width: "800px", height: "800px"}
+                id: JSONEditorVars.ContainerID
             }),
             React.createElement(EnvButton,{})
         )
