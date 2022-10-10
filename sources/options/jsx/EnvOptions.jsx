@@ -2,6 +2,7 @@ function EnvOptions(props){
     const {index,preDefined,dataForm,setDataForm} = props;
     const [isEditable,setIsEditable] = React.useState(preDefined.type == "");
     const [currentChange,setCurrentChange] = React.useState(preDefined);
+    const [isHidden,setIsHidden] = React.useState(true);
 
     function onIdChange(key,value){
         let obj = Object.assign({},currentChange);
@@ -79,6 +80,13 @@ function EnvOptions(props){
         }
     }
 
+    function saveEnvList(newDataForm){
+        chrome.storage.local.set({"envList":newDataForm},
+        function(){
+            console.log(`Successfully Updated Enviroment ${index}`);
+        })
+    }
+
     function onSaveClick(e){
         //validate Enviroment
         if(validateEnviromentData()){
@@ -92,10 +100,7 @@ function EnvOptions(props){
                 }
             );
             //Save content
-            chrome.storage.local.set({"envList":newDataForm},
-            function(){
-                console.log(`Successfully Updated Enviroment ${index}`);
-            })
+            saveEnvList(newDataForm);
             // Update component
             setDataForm(newDataForm);
             // tpggle editablity 
@@ -108,15 +113,27 @@ function EnvOptions(props){
         }
     }
 
+    function onDeleteIconClick(e){
+        setIsHidden(false);
+    }
+
     function deleteEnviroment(e){
-        setDataForm(dataForm.filter((el,i)=>i!==index));
+        let newDataForm = dataForm.filter((el,i)=>i!==index);
+        saveEnvList(newDataForm)
+        setDataForm(newDataForm);
     }
 
     return (
         React.createElement("div",{className:"env-options"},
             React.createElement(EnvIcon,{
-                onClick: deleteEnviroment, 
-                icon: IconsFontAwesome.Trash
+                onClick: onDeleteIconClick, 
+                icon: IconsFontAwesome.Trash,
+                isDisabled: !isEditable
+            }),
+            React.createElement(EnvConfirm,{
+                isHidden: isHidden,
+                setIsHidden: setIsHidden,
+                callback: deleteEnviroment
             }),
             React.createElement("h2",{className:"env-options-header"},
             `Enviroment ${index}`),

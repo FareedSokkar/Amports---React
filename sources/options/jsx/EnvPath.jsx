@@ -24,7 +24,8 @@ function EnvPath(props) {
             React.createElement(EnvIcon,{
                 onClick: onDeletePath, 
                 icon: IconsFontAwesome.Trash,
-                size: IconSize.Small
+                size: IconSize.Small,
+                isDisabled: !isEditable
             }),
             React.createElement("h4", {className: "env-path-header"},`Path ${index}`), 
             React.createElement(EnvInput, {
