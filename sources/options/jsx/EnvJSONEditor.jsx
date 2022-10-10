@@ -4,7 +4,6 @@ function EnvJSONEditor(props) {
     React.useEffect(
         ()=>{
             const container = document.getElementById(JSONEditorVars.ContainerID);
-            console.log(container,JSONEditorVars.ContainerID)
             const options = {
                 templates: Object.values(JSONEditorVars.Templates)
             }

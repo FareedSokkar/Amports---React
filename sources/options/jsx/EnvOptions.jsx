@@ -61,13 +61,11 @@ function EnvOptions(props){
         }
         // generated id is unique for enviroment
         let envErrorIndex = uniqueList(dataForm,"id",index,currentChange.id);
-        console.log(envErrorIndex,dataForm,"id",index,currentChange.id);
         if(envErrorIndex!==-1){
             return false;
         }
         // Ids of paths are unique to each other
         let errorIndex = uniqueList(currentChange.configration.list,"id");
-        console.log(errorIndex);
         if(errorIndex!==-1){
             return false;
         }

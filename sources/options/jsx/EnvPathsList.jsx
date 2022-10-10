@@ -1,5 +1,5 @@
 function EnvPathsList(props){
-    const {list,isEditable,changeCurrentConfig} = props;
+    const {list,isEditable,changeCurrentConfig,type} = props;
 
     function changeListInIndexAtConfig(index,value){
         changeCurrentConfig("list",list.map(
@@ -38,11 +38,12 @@ function EnvPathsList(props){
             React.createElement("h3", {className: "env-paths-list-header"},"Paths List"), 
             list.map(
                 (path,i)=>React.createElement(EnvPath,{
-                    key:i,
+                    key:path.id,
                     index:i,
                     isEditable:isEditable,
                     onChange: changeListInIndexAtConfig,
                     onDelete:changeList,
+                    type: type,
                     ...path,
                     pathslist:list
                 })

@@ -18,8 +18,13 @@ function EnvConfig(props){
                 configList.push(React.createElement(EnvPathsList,{
                     list: list,
                     isEditable: isEditable,
-                    changeCurrentConfig: changeCurrentConfig
+                    changeCurrentConfig: changeCurrentConfig,
+                    type:type
                 }));
+                if(type == EnviromentTypes.Tools){
+                    // Add Build Tool List
+
+                }
             break;
             default:
                 configList.push(

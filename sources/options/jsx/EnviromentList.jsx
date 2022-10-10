@@ -4,9 +4,6 @@ function EnviromentList(props) {
     const { list } = props;
     const [dataForm,setDataForm] = React.useState(list);
     const [sysType,setSysType] = React.useState(ConfigrationEditorType.AmportsEditor);
-    
-    console.log("%cEnviromentList: dataForm-","color: blue; font-size: 30px;");
-    console.dir(dataForm);
 
     function onAddClick(e){
         setDataForm(

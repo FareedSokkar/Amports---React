@@ -1,5 +1,5 @@
 function EnvPath(props) {
-    const { index, id, ip, name, path, icon, icoType , isEditable , onChange , onDelete , pathslist} = props;
+    const { index, id, ip, name, path, icon, icoType , type , isEditable , onChange , onDelete , pathslist} = props;
 
     function onDeletePath(e){
         onDelete(pathslist.filter((el,i)=>i!==index));
@@ -13,6 +13,18 @@ function EnvPath(props) {
 
     function generateUUIDV4(){
         return uuid.v4()
+    }
+
+    function getAllowedPathTypes(){
+        switch(type){
+            case EnviromentTypes.Personal:
+            case EnviromentTypes.Public:
+                return [ipTypes.Master, ipTypes.User, ipTypes.ExternalLink];
+            case EnviromentTypes.Tools:
+                return [ipTypes.ToolBlock,ipTypes.ToolBuild]
+            default:
+                return []; 
+        }
     }
 
     function onGenerateClick(e){
@@ -38,7 +50,7 @@ function EnvPath(props) {
                 generateUUID: onGenerateClick
             }), 
             React.createElement(EnvSelect, {
-                list: [ipTypes.Master, ipTypes.User, ipTypes.ExternalLink],
+                list: getAllowedPathTypes(),
                 listName: "IP Type",
                 defaultValue: ip,
                 isEditable: isEditable,
