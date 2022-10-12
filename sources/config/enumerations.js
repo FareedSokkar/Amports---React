@@ -55,7 +55,8 @@ const JSONEditorVars ={
 }
 const ConfigrationEditorType = {
     AmportsEditor: "Amports Editor",
-    JSONEditor: "JSON Editor"
+    JSONEditor: "JSON Editor",
+    CustomEditor: "Custom Editor"
 }
 const IconType ={
     Image: "image",

@@ -48,6 +48,10 @@ function EnviromentList(props) {
                         isFullRow: true
                     })
                 ]
+            case ConfigrationEditorType.CustomEditor:
+                return [
+                    React.createElement(EnvCustomEditor,{dataList:dataForm})
+                ];
         }
     }
 
