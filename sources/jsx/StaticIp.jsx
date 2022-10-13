@@ -8,20 +8,28 @@ function StaticIp(props) {
         setIsEditable(true);
     }
 
-    function saveEnvPersonalList(key,value){
-        let keyValue = {};
-        keyValue[key] = value;
-        chrome.storage.local.set(keyValue,
-            function(){
-                console.log(`Successfully Updated ${type}`);
+    function saveEnvPersonalList(env,ip,value){
+        console.log(env,type,value)
+        chrome.storage.local.get({"envPersonalList": {}},function(list){
+            let currentIps = list.envPersonalList;
+            if(currentIps){
+                if(!currentIps[env]){
+                    currentIps[env] = {}
+                }
+                currentIps[env][ip] = value;
             }
-        )
+            chrome.storage.local.set(list,
+                function(){
+                    console.log(`Successfully Updated ${ip} for ${env}`);
+                }
+            )
+        });
     }
 
     function onSaveClick(e){
         //Save to storage
 // ==========>
-        console.log(type,data);
+        saveEnvPersonalList(envId,type,data);
         // disable editing
         setIsEditable(false);
     }

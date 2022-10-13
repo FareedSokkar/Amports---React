@@ -1,13 +1,13 @@
 // "use strict";
 
 function Enviroment(props) {
-    const {title,list} = props;
+    const {title,list,ips,id} = props;
     const [isMinimized,setIsMinimized] = React.useState(true);
     
     function getEnviromentData(){
         let env = {};
-        env[ipTypes.Master] = "10.0.0.120";
-        env[ipTypes.User] = "10.0.0.128";
+        env[ipTypes.Master] = (ips && ips[ipTypes.Master]) || "N/A";
+        env[ipTypes.User] = (ips && ips[ipTypes.User]) || "N/A";
         return env;
     }
 
@@ -21,10 +21,20 @@ function Enviroment(props) {
 
     return (
         React.createElement("div", {className: "enviroment"}, 
-            React.createElement(StaticIp, {isMinimized: isMinimized, data: env.master , onSave:changeEnviroment}), 
             React.createElement(StaticIp, {
-                type: ipTypes.User,button: "Edit",icon: "male",isMinimized: isMinimized , data: env.user, 
-                onSave:changeEnviroment
+                isMinimized: isMinimized, 
+                data: env.master , 
+                onSave:changeEnviroment,
+                envId: id
+            }), 
+            React.createElement(StaticIp, {
+                type: ipTypes.User,
+                button: "Edit",
+                icon: "male",
+                isMinimized: isMinimized, 
+                data: env.user, 
+                onSave:changeEnviroment,
+                envId: id
             }), 
             React.createElement(CookieControl, {isMinimized: isMinimized,setIsMinimized: setIsMinimized}), 
             React.createElement(TabsList, {title:title,tabsLibs: list, env: env})

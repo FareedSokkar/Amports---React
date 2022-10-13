@@ -2,21 +2,31 @@
 
 function App(props) {
 
-    const {list} = props;
-    
+    const {list,ips} = props;
+    console.log(ips)
 
     function createEnviroment(env) {
         let content;
         switch (env.type) {
             case EnviromentTypes.Personal:
-                content = React.createElement(Enviroment, {key: env.configration.id,title: env.configration.title,list: env.configration.list});
+                content = React.createElement(Enviroment, {
+                    key: env.id, 
+                    id: env.id,
+                    ips: ips[env.id], 
+                    title: env.configration.title,
+                    list: env.configration.list
+                });
                 break;
             case EnviromentTypes.Public:
-                content = React.createElement(ExternalTabs, {key: env.configration.id,title: env.configration.title,list: env.configration.list});
+                content = React.createElement(ExternalTabs, {
+                    key: env.id,
+                    title: env.configration.title,
+                    list: env.configration.list
+                });
                 break;
             case EnviromentTypes.Tools:
             default:
-                content = React.createElement("div", {className: "app-empty"});
+                content = React.createElement("div", {key: env.id,className: "app-empty"});
         }
         return content;
     }
@@ -47,15 +57,17 @@ function App(props) {
 }
 
 let envList;
+let envPersonalList;
 function restore_options() {
     chrome.storage.local.get(
-        { "envList": [] },
+        { "envList": [], "envPersonalList": {}},
         function (list) {
             envList = list.envList;
+            envPersonalList = list.envPersonalList;
             ReactDOM.createRoot(
                 document.getElementById('root')
             ).render(
-                React.createElement(App, { list: envList })
+                React.createElement(App, { list: envList , ips: envPersonalList})
             );
         }
     )
