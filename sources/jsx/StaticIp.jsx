@@ -17,18 +17,19 @@ function StaticIp(props) {
                     currentIps[env] = {}
                 }
                 currentIps[env][ip] = value;
+                chrome.storage.local.set(list,
+                    function(){
+                        console.log(`Successfully Updated ${ip} for ${env}`);
+                    }
+                )
+            }else{
+                //Error Handling
             }
-            chrome.storage.local.set(list,
-                function(){
-                    console.log(`Successfully Updated ${ip} for ${env}`);
-                }
-            )
         });
     }
 
     function onSaveClick(e){
         //Save to storage
-// ==========>
         saveEnvPersonalList(envId,type,data);
         // disable editing
         setIsEditable(false);

@@ -19,6 +19,13 @@ function Enviroment(props) {
         setEnv(envCopy);
     }
 
+    function resetEnviroment(){
+        let envCopy = Object.assign({},env);
+        envCopy[ipTypes.Master] = "N/A";
+        envCopy[ipTypes.User] = "N/A";
+        setEnv(envCopy);
+    }
+
     return (
         React.createElement("div", {className: "enviroment"}, 
             React.createElement(StaticIp, {
@@ -36,7 +43,12 @@ function Enviroment(props) {
                 onSave:changeEnviroment,
                 envId: id
             }), 
-            React.createElement(CookieControl, {isMinimized: isMinimized,setIsMinimized: setIsMinimized}), 
+            React.createElement(CookieControl, {
+                isMinimized: isMinimized,
+                setIsMinimized: setIsMinimized,
+                envId: id,
+                resetEnviroment:resetEnviroment
+            }), 
             React.createElement(TabsList, {title:title,tabsLibs: list, env: env})
         )
     );
