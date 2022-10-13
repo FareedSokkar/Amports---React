@@ -1,6 +1,6 @@
 
 function StaticIp(props) {
-    const { type, button, icon, isMinimized , data , onSave} = props;
+    const { envId, type, button, icon, isMinimized , data , onSave} = props;
     const [isEditable,setIsEditable] = React.useState(false);
     const iClassName = `fa fa-${icon} fav_ico`;
 
@@ -8,9 +8,20 @@ function StaticIp(props) {
         setIsEditable(true);
     }
 
+    function saveEnvPersonalList(key,value){
+        let keyValue = {};
+        keyValue[key] = value;
+        chrome.storage.local.set(keyValue,
+            function(){
+                console.log(`Successfully Updated ${type}`);
+            }
+        )
+    }
+
     function onSaveClick(e){
         //Save to storage
 // ==========>
+        console.log(type,data);
         // disable editing
         setIsEditable(false);
     }
