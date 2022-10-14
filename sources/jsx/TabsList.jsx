@@ -18,7 +18,7 @@ function TabsList(props) {
             React.createElement("label", {htmlFor: "",className: "tabslist-label", onClick: onToggleClick}, 
                 React.createElement("i", {className: className}), title), 
             React.createElement("div", {className: `tabslist-tabs${isToggled?"":" hide"}`}, 
-            tabsLibs.map(tab => React.createElement(Tab, {...tab,ipHost: selectIp(tab)}))), 
+            tabsLibs.map(tab => React.createElement(Tab, {...tab,ipHost: selectIp(tab),key:tab.id}))), 
             React.createElement("hr", {className: "tabslist-hr"})
         )
     );

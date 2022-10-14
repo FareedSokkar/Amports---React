@@ -9,7 +9,6 @@ function StaticIp(props) {
     }
 
     function saveEnvPersonalList(env,ip,value){
-        console.log(env,type,value)
         chrome.storage.local.get({"envPersonalList": {}},function(list){
             let currentIps = list.envPersonalList;
             if(currentIps){

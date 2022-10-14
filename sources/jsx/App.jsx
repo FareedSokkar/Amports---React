@@ -3,7 +3,6 @@
 function App(props) {
 
     const {list,ips} = props;
-    console.log(ips)
 
     function createEnviroment(env) {
         let content;
