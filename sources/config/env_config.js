@@ -49,19 +49,23 @@ let shared_enviroments = [
                     {
                         "tag": "h2",
                         "attributes": {},
-                        "text": "Cat"
+                        "children": [
+                            {
+                                "tag": "p",
+                                "attributes": {},
+                                "children": [],
+                                "text": "Hello I am a paragraph!"
+                            }
+                        ],
+                        "text": "Hi there!"
                     },
                     {
                         "tag": "img",
                         "attributes": {
                             "src": 'https://i.cbc.ca/1.5256404.1566499707!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cat-behaviour.jpg'
                             , "width": "300"
-                        }
-                    },
-                    {
-                        "tag": "p",
-                        "attributes": {},
-                        "text": "Hi my name is Kitty the Cat!"
+                        },
+                        "children": []
                     },
                 ],
             }
