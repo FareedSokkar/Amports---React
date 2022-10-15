@@ -50,7 +50,10 @@ function EnviromentList(props) {
                 ]
             case ConfigrationEditorType.CustomEditor:
                 return [
-                    React.createElement(EnvCustomEditor,{dataList:dataForm})
+                    React.createElement(EnvCustomEditor,{
+                        dataList:dataForm,
+                        setDataForm:setDataForm
+                    })
                 ];
         }
     }
