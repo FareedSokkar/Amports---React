@@ -35,7 +35,7 @@ function EnvCustomEditor(props) {
             React.createElement("textarea", {
                     className: "env-custom-editor-textarea",
                     cols: "80",
-                    rows: "60",
+                    rows: "30",
                     value: textAreaData,
                     onInput:onInputChange
                 }
