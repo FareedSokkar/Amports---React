@@ -18,9 +18,9 @@
     font-family: inherit;
     border-radius: 6px;
     -webkit-appearance: none;
-    color: #fff;
+    color: #99A3BA;
     border: 1px solid #CDD9ED;
-    background: #99A3BA;
+    background: #eef4ff;
     transition: border .3s ease;
     position: relative;
     z-index: 1;
@@ -35,7 +35,7 @@
     font-size: 14px;
     line-height: 25px;
     color: #99a3ba;
-    background: #eef4ff;
+    background: #fff;
     border: 1px solid #cdd9ed;
     transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
@@ -50,9 +50,9 @@
     font-family: inherit;
     border-radius: 6px;
     -webkit-appearance: none;
-    color: #fff;
+    color: #99A3BA;
     border: 1px solid #CDD9ED;
-    background: #99A3BA;
+    background: #eef4ff;
     transition: border .3s ease;
     position: relative;
     z-index: 1;
