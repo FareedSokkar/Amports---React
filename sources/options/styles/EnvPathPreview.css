@@ -11,7 +11,6 @@
 .env-path-preview-protocol{
     white-space: nowrap;
     display: block;
-    width: 100%;
     padding: 8px 16px;
     line-height: 25px;
     font-size: 14px;
@@ -19,14 +18,12 @@
     font-family: inherit;
     border-radius: 6px;
     -webkit-appearance: none;
-    color: #99A3BA;
+    color: #fff;
     border: 1px solid #CDD9ED;
-    background: #fff;
+    background: #99A3BA;
     transition: border .3s ease;
     position: relative;
     z-index: 1;
-    flex: 1 1 auto;
-    width: 1%;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -53,9 +50,9 @@
     font-family: inherit;
     border-radius: 6px;
     -webkit-appearance: none;
-    color: #99A3BA;
+    color: #fff;
     border: 1px solid #CDD9ED;
-    background: #fff;
+    background: #99A3BA;
     transition: border .3s ease;
     position: relative;
     z-index: 1;
