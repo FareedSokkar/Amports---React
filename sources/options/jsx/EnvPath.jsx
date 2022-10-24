@@ -41,6 +41,11 @@ function EnvPath(props) {
                 isDisabled: !isEditable
             }),
             React.createElement("h4", {className: "env-path-header"},`Path ${index}`), 
+            React.createElement(EnvPathPreview, {
+                ip: ip,
+                protocol: protocol,
+                path: path
+            }),
             React.createElement(EnvInput, {
                 inputName: "ID",
                 defaultValue: id,
