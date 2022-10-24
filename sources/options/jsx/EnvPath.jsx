@@ -18,8 +18,9 @@ function EnvPath(props) {
     function getAllowedPathTypes(){
         switch(type){
             case EnviromentTypes.Personal:
-            case EnviromentTypes.Public:
                 return [ipTypes.Master, ipTypes.User, ipTypes.ExternalLink];
+                case EnviromentTypes.Public:
+                return [ipTypes.ExternalLink];
             case EnviromentTypes.Tools:
                 return [ipTypes.ToolBlock,ipTypes.ToolBuild]
             default:
@@ -80,13 +81,25 @@ function EnvPath(props) {
                 changeOnSelect: valueUpdate,
                 isPleaseSelect: false
             }),
-            React.createElement(EnvInput, {
-                inputName: "Icon",
-                defaultValue: icon,
-                isEditable: isEditable,
-                changeKey: "icon",
-                setInputValue:valueUpdate
-            })
+            (
+                icoType == IconType.Icon?
+                React.createElement(EnvSelect, {
+                    list: IconsFullList,
+                    listName: "Icon",
+                    defaultValue: icon,
+                    isEditable: isEditable,
+                    changeKey: "icon",
+                    changeOnSelect: valueUpdate,
+                    isIcon: true
+                }):
+                React.createElement(EnvInput, {
+                    inputName: "Icon",
+                    defaultValue: icon,
+                    isEditable: isEditable,
+                    changeKey: "icon",
+                    setInputValue:valueUpdate
+                })
+            )
         )
     );
 }

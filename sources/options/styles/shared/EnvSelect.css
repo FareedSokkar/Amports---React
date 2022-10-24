@@ -47,7 +47,7 @@
     line-height: 25px;
     font-size: 14px;
     font-weight: 500;
-    font-family: inherit;
+    font-family: 'FontAwesome', 'sans-serif';
     border-radius: 6px;
     -webkit-appearance: none;
     color: #99A3BA;
@@ -70,4 +70,5 @@
 }
 .env-select-option{
     color: #000;
+    font-family: 'FontAwesome', 'sans-serif';
 }
