@@ -85,6 +85,29 @@ function EnvOptions(props){
         })
     }
 
+    function onCancelClick(e){
+        chrome.storage.local.get(
+            { "envList": [] },
+            function (list) {
+                let current = list.envList[index];
+                console.log(current)
+                console.log(dataForm)
+                setCurrentChange(current);
+                setDataForm(dataForm.map(
+                    (el,i)=>{
+                        if(i == index){
+                            return current;
+                        }else{
+                            return el;
+                        }
+                    }
+                ));
+                console.log(dataForm)
+                setIsEditable(false);
+            }
+        )
+    }
+
     function onSaveClick(e){
         //validate Enviroment
         if(validateEnviromentData()){
@@ -161,7 +184,9 @@ function EnvOptions(props){
             React.createElement(EnvButton,{
                 buttonText: "Edit",
                 isDisabled: isEditable,
-                onClick: onEditClick
+                onClick: onEditClick,
+                isCancel: true,
+                onCancel: onCancelClick
             }),
             React.createElement(EnvButton,{
                 buttonText: "Save",

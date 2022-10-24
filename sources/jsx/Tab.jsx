@@ -1,5 +1,5 @@
 function Tab(props) {
-    const {id,ip,name,path,icon,icoType,ipHost} = props; 
+    const {id,ip,name,protocol,path,icon,icoType,ipHost} = props; 
     // Functions
     function getIconElement(ip, icon, icoType) {
         const user = "male",master = "university",def = "default";
@@ -26,11 +26,11 @@ function Tab(props) {
         let link;
         switch(ip){
             case ipTypes.ExternalLink:
-                link = `https://${path}`;
+                link = `${protocol}://${path}`;
                 break;
             case ipTypes.Master:
             case ipTypes.User:
-                link = `https://${ipHost}/${path}`;
+                link = `${protocol}://${ipHost}/${path}`;
                 break;
             default:
                 link = null;
@@ -48,5 +48,6 @@ function Tab(props) {
 }
 
 Tab.defaultProps = {
-    icoType: "image"
+    icoType: "image",
+    protocol: ProtocolTypes.HTTPS
 };

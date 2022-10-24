@@ -1,20 +1,23 @@
 function EnvButton(props) {
-    const { buttonText, isDisabled , setIsEditable ,onClick , isFullRow} = props;
+    const { buttonText, isDisabled , setIsEditable ,onClick , isFullRow, isCancel, onCancel} = props;
 
     return (
         React.createElement("div", {
                 className: `env-button${isFullRow?" env-button-full-row":""}`,
-                onClick: onClick
+                onClick: isCancel && isDisabled?onCancel:onClick
             }, 
-            React.createElement("label", {className: `env-button-label${isDisabled?" env-button-label-disabled":""}`}, isDisabled ? "X" : ">"), 
+            React.createElement("label", {
+                className: `env-button-label${!isCancel && isDisabled?" env-button-label-disabled":""}`
+            }, isDisabled ? "X" : ">"), 
             React.createElement("button", {
                 className: "env-button-button",
-                disabled: isDisabled
-            }, buttonText)
+                disabled: !isCancel && isDisabled
+            }, isCancel && isDisabled?"Cancel":buttonText)
         )
     );
 }
 
 EnvButton.defaultProps ={
-    isFullRow: false
+    isFullRow: false,
+    isCancel: false
 }

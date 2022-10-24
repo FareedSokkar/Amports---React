@@ -25,6 +25,7 @@ function EnvPathsList(props){
                     id: '', 
                     ip: "", 
                     name: "", 
+                    protocol: ProtocolTypes.HTTPS,
                     path: "",
                     icon: ""
                 }

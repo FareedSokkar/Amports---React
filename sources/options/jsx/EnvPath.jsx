@@ -1,5 +1,5 @@
 function EnvPath(props) {
-    const { index, id, ip, name, path, icon, icoType , type , isEditable , onChange , onDelete , pathslist} = props;
+    const { index, id, ip, name, protocol, path, icon, icoType , type , isEditable , onChange , onDelete , pathslist} = props;
 
     function onDeletePath(e){
         onDelete(pathslist.filter((el,i)=>i!==index));
@@ -65,6 +65,14 @@ function EnvPath(props) {
                 changeKey: "name",
                 setInputValue:valueUpdate
             }), 
+            React.createElement(EnvSelect, {
+                list: Object.values(ProtocolTypes),
+                listName: "Protocol",
+                defaultValue: protocol,
+                isEditable: isEditable,
+                changeKey: "protocol",
+                changeOnSelect:valueUpdate
+            }), 
             React.createElement(EnvInput, {
                 inputName: "Path",
                 defaultValue: path,
@@ -105,5 +113,6 @@ function EnvPath(props) {
 }
 
 EnvPath.defaultProps ={
-    icoType: IconType.Image
+    icoType: IconType.Image,
+    protocol: ProtocolTypes.HTTPS
 }

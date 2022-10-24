@@ -22,7 +22,7 @@ function EnvSelect(props) {
             ,React.createElement("select", {
                 className: "env-select-select",
                 onChange: onOptionChange,
-                defaultValue:defaultValue, 
+                value:defaultValue, 
                 disabled: !isEditable
             }, 
                 (

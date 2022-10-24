@@ -62,3 +62,8 @@ const IconType ={
     Image: "image",
     Icon: "icon"
 }
+const ProtocolTypes = {
+    HTTPS: "https",
+    HTTP: "http",
+    FTP: "ftp",
+}
