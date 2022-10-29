@@ -1,18 +1,23 @@
 function EnvBuild(props){
-    const {isEditable} = props;
+    const {property,list,isEditable} = props;
 
     return(
         React.createElement("div",{className:"env-build"},
             React.createElement(EnvInput, {
                 inputName: "Build-key",
-                defaultValue: "",
+                defaultValue: property,
                 isEditable: isEditable,
                 // changeKey: "id",
                 // setInputValue: onIdChange,
                 // isUUID: true,
                 // generateUUID: onGenerateClick
             }),
-            React.createElement(EnvBuildTag,{})
+            list.map(
+                tag=>React.createElement(EnvBuildTag,{
+                    ...tag,
+                    isEditable: isEditable
+                })
+            )
         )
         
     );

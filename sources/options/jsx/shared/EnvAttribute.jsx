@@ -1,4 +1,7 @@
 function EnvAttribute(props){
+
+    const {property,value,isEditable} = props;
+
     return (
         React.createElement("div", {className: "env-attribute"}, 
             React.createElement("input", {
@@ -6,7 +9,7 @@ function EnvAttribute(props){
                 placeHolder: "Attribute",
                 // onInput: onValueChange,
                 className: "env-attribute-input",
-                value: defaultValue,
+                value: property,
                 // disabled: !isEditable
             }), 
             React.createElement("input", {
@@ -14,7 +17,7 @@ function EnvAttribute(props){
                 placeHolder: "Value",
                 // onInput: onValueChange,
                 className: "env-attribute-input",
-                value: defaultValue,
+                value: value,
                 // disabled: !isEditable
             })
         )

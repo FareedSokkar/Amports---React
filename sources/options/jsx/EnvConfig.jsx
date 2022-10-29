@@ -23,7 +23,14 @@ function EnvConfig(props){
                 }));
                 if(type == EnviromentTypes.Tools){
                     // Add Build Tool List
-
+                    configList.push(
+                        React.createElement(EnvBuildList,{
+                            isEditable: isEditable,
+                            innerHtml_build:innerHtml_build,
+                            changeCurrentConfig: changeCurrentConfig,
+                            type:type
+                        })
+                    );
                 }
             break;
             default:
