@@ -8,6 +8,7 @@
     font-weight: 700;
     /* color: #c9317f; */
     background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: capitalize;
@@ -44,4 +45,30 @@
 }
 .staticip-button:hover{
     background: linear-gradient(0deg,#c9317f 1%,#F6B74B 100%);
+}
+.staticip-mini-copy{
+    font-size: medium;
+    background: #aaa;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.staticip-mini-copy:hover{
+    cursor: pointer;
+    background: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.staticip-mini-copy-success{
+    background: #06d6a0 !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+.staticip-mini-copy-fail{
+    background: #ef476f  !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
