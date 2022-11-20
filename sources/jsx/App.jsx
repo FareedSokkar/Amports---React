@@ -2,7 +2,7 @@
 
 function App(props) {
 
-    const {list,ips} = props;
+    const {list,ips,easyUI} = props;
 
     function createEnviroment(env) {
         let content;
@@ -66,7 +66,7 @@ function restore_options() {
             ReactDOM.createRoot(
                 document.getElementById('root')
             ).render(
-                React.createElement(App, { list: envList , ips: envPersonalList})
+                React.createElement(App, { list: envList , ips: envPersonalList , easyUI: false})
             );
         }
     )

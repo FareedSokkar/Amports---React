@@ -1,0 +1,34 @@
+.tab-mini-ui{
+        display: inline-flex;
+        width: 35px;
+        height: 25px;
+        background-color: #232630;
+        border-radius: 10px;
+        margin: 0 2px;
+        color: #aaa;
+        font-size: large;
+        text-align: center;
+        line-height: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-bottom: 10px solid;
+        border-image-slice: 1;
+        border-width: 5px;
+        border-image-source: linear-gradient(90deg,#343a40 1%,#adb5bd 100%);
+}
+.tab-mini-ui:hover{
+        border-bottom: 10px solid;
+        border-image-slice: 1;
+        border-width: 5px;
+        border-image-source: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
+        cursor: pointer;
+        transition: border-image-source 1s ease-in-out 0;
+        color: #fff;
+}
+
+.tab-mini-ui-icon{
+        margin: 2px auto;
+}
+.tab-mini-ui:first-of-type{
+        margin-left: 5px;
+}
