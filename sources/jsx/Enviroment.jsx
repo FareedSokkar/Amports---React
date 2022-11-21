@@ -13,7 +13,28 @@ function Enviroment(props) {
     }
 
     function onIconClick(e){
-        setIsMiniUI(!isMiniUI);
+        let flag = !isMiniUI;
+        saveConfig(id,"miniui",flag);
+        setIsMiniUI(flag);
+    }
+
+    function saveConfig(env,key,value){
+        chrome.storage.local.get({"configurationList": {}},function(list){
+            let currentIps = list.configurationList;
+            if(currentIps){
+                if(!currentIps[env]){
+                    currentIps[env] = {}
+                }
+                currentIps[env][key] = value;
+                chrome.storage.local.set(list,
+                    function(){
+                        console.log(`Successfully Updated ${key} for ${env}`);
+                    }
+                )
+            }else{
+                //Error Handling
+            }
+        });
     }
 
     const [env,setEnv] = React.useState(getEnviromentData());
