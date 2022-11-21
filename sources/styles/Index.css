@@ -30,3 +30,16 @@ background: #232630;
 ::-webkit-scrollbar-thumb:hover {
 background: #555;
 }
+.mini-ui-toggle-icon{
+    color: white;
+    z-index: 1000;
+    position: absolute;
+    right: 10px;
+    -webkit-text-fill-color: white;
+    font-size: 20px;
+}
+.mini-ui-toggle-icon:hover{
+    color: gray;
+    -webkit-text-fill-color: gray;
+    cursor: cell;
+}

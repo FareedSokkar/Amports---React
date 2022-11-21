@@ -1,14 +1,19 @@
 // "use strict";
 
 function Enviroment(props) {
-    const {title,list,ips,id} = props;
+    const {title,list,ips,id,config} = props;
     const [isMinimized,setIsMinimized] = React.useState(true);
+    const [isMiniUI,setIsMiniUI] = React.useState((!!config && !!config.miniui));
     
     function getEnviromentData(){
         let env = {};
         env[ipTypes.Master] = (ips && ips[ipTypes.Master]) || "N/A";
         env[ipTypes.User] = (ips && ips[ipTypes.User]) || "N/A";
         return env;
+    }
+
+    function onIconClick(e){
+        setIsMiniUI(!isMiniUI);
     }
 
     const [env,setEnv] = React.useState(getEnviromentData());
@@ -49,7 +54,7 @@ function Enviroment(props) {
                 envId: id,
                 resetEnviroment:resetEnviroment
             }), 
-            React.createElement(TabsList, {title:title,tabsLibs: list, env: env})
+            React.createElement(TabsList, {title:title,tabsLibs: list, env: env, isMiniUI: isMiniUI, onMiniClick: onIconClick})
         )
     );
 }

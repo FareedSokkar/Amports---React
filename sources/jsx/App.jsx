@@ -2,7 +2,7 @@
 
 function App(props) {
 
-    const {list,ips,easyUI} = props;
+    const {list,ips,config} = props;
 
     function createEnviroment(env) {
         let content;
@@ -13,14 +13,17 @@ function App(props) {
                     id: env.id,
                     ips: ips[env.id], 
                     title: env.configration.title,
-                    list: env.configration.list
+                    list: env.configration.list,
+                    config: config[env.id]
                 });
                 break;
             case EnviromentTypes.Public:
                 content = React.createElement(ExternalTabs, {
                     key: env.id,
+                    id: env.id,
                     title: env.configration.title,
-                    list: env.configration.list
+                    list: env.configration.list,
+                    config: config[env.id]
                 });
                 break;
             case EnviromentTypes.Tools:
@@ -57,16 +60,18 @@ function App(props) {
 
 let envList;
 let envPersonalList;
+let configurationList;
 function restore_options() {
     chrome.storage.local.get(
-        { "envList": [], "envPersonalList": {}},
+        { "envList": [], "envPersonalList": {}, "configurationList":{}},
         function (list) {
             envList = list.envList;
             envPersonalList = list.envPersonalList;
+            configurationList = list.configurationList;
             ReactDOM.createRoot(
                 document.getElementById('root')
             ).render(
-                React.createElement(App, { list: envList , ips: envPersonalList , easyUI: false})
+                React.createElement(App, { list: envList , ips: envPersonalList, config: configurationList})
             );
         }
     )
