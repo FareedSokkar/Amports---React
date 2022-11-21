@@ -14,13 +14,11 @@
         border-bottom: 10px solid;
         border-image-slice: 1;
         border-width: 5px;
-        border-image-source: linear-gradient(90deg,#343a40 1%,#adb5bd 100%);
 }
 .tab-mini-ui:hover{
         border-bottom: 10px solid;
         border-image-slice: 1;
         border-width: 5px;
-        border-image-source: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
         cursor: pointer;
         transition: border-image-source 1s ease-in-out 0;
         color: #fff;

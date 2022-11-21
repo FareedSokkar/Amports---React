@@ -10,12 +10,14 @@
     /* color: #c9317f; */
     background: linear-gradient(90deg,#c9317f 1%,#F6B74B 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .tabslist-label:hover{
     cursor: pointer;
     background: linear-gradient(90deg,#343a40 1%,#adb5bd 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .tabslist-icon{
@@ -23,6 +25,7 @@
     left: 40px;
     background: linear-gradient(0deg,#fff 100%,#fff 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .tabslist-tabs{
@@ -35,4 +38,11 @@
 }
 .tabslist-tabs-mini-ui{
     /* display: flex; */
+}
+.tabslist-tabs-mini-ui-label{
+    display: block;
+    text-align: left;
+    font-weight: 700;
+    color: #fff;
+    margin: 5px;
 }

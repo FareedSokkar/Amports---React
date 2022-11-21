@@ -17,8 +17,11 @@ function TabsList(props) {
         React.createElement("div", {className: "tabslist"}, 
             isMiniUI?
             (
-                React.createElement("div", {className: "tabslist-tabs-mini-ui"}, 
-                tabsLibs.map(tab => React.createElement(TabMiniUI, {...tab,ipHost: selectIp(tab),key:tab.id})))
+                React.createElement("div", {className: "tabslist-container"},
+                    React.createElement("label", {className: "tabslist-tabs-mini-ui-label"},title),
+                    React.createElement("div", {className: "tabslist-tabs-mini-ui"}, 
+                    tabsLibs.map(tab => React.createElement(TabMiniUI, {...tab,ipHost: selectIp(tab),key:tab.id})))
+                )
             )
             :
             (
@@ -37,5 +40,5 @@ function TabsList(props) {
 TabsList.defaultProps = {
     title: "Tabs",
     tabsLibs: [],
-    isMiniUI: true
+    isMiniUI: false
 };
