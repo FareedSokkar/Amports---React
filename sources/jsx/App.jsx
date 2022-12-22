@@ -33,6 +33,26 @@ function App(props) {
         return content;
     }
 
+    async function onSettingsClick(e){
+        let tab = await getOptionTab();
+        if(tab){
+            chrome.tabs.update(tab.id,{active:true});
+            chrome.windows.update(tab.windowId,{focused:true})
+        }else{
+            chrome.tabs.create({'url': "/sources/options/options.html" } );
+        }
+    }
+
+    async function getOptionTab() {
+        let queryOptions = { 
+            url: "chrome-extension://*/sources/options/options.html" ,
+            title: "Amports Options"
+        };
+        // `tab` will either be a `tabs.Tab` instance or `undefined`.
+        let [tab] = await chrome.tabs.query(queryOptions);
+        return tab;
+    }
+
     function setEnviromentsList() {
         if (typeof list !== 'undefined' && Array.isArray(list) && list.length) {
             return list.map((env) => createEnviroment(env));
@@ -49,6 +69,7 @@ function App(props) {
     return (
         React.createElement("div",{className: "app"},
             React.createElement("div",{className: "app-header"},
+                React.createElement("i", {onClick: onSettingsClick, className: "fa fa-cog setting-cog"}),
                 React.createElement("img", {src: "/popup/amports.png",alt: "logo",className: "app-logo"})
             ),
             React.createElement("hr", {className: "tabslist-hr"}),

@@ -30,6 +30,18 @@ background: #232630;
 ::-webkit-scrollbar-thumb:hover {
 background: #555;
 }
+.setting-cog{
+    z-index: 1000;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    color: gray;
+}
+.setting-cog:hover{
+    color: white;
+}
 .mini-ui-toggle-icon{
     color: white;
     z-index: 1000;
