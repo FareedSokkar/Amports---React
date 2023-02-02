@@ -1,7 +1,7 @@
 {
     "name": "Amports",
     "description": "Amports - All the links needed in one place",
-    "version": "2.2",
+    "version": "2.25",
     "permissions": [
         "<all_urls>",
         "tabs",
