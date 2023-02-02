@@ -22,6 +22,33 @@ function TabMiniUI(props) {
         chrome.tabs.create({url: url});
     }
 
+    function getCopyTemplate(){
+        switch(ip){
+            case ipTypes.ExternalLink:
+                return `${protocol} ${path}`;
+            case ipTypes.Master:
+            case ipTypes.User:
+                return `${protocol} ${path}@${ipHost}`;
+            default:
+                return null;
+        }
+    }
+
+    function onTabCopy(e){
+        if (!navigator.clipboard) {
+            return;
+        }
+        let data = getCopyTemplate();
+        navigator.clipboard.writeText(data).then(function() {
+            alert('Copied');
+            console.log('Async: Copying to clipboard was successful!');
+        }, function(err) {
+            alert('Failed');
+            console.error('Async: Could not copy text: ', err);
+        });
+    }
+
+
     function onTabClick(e) {
         let link;
         switch(ip){
@@ -41,7 +68,7 @@ function TabMiniUI(props) {
     }
 
     return (
-        React.createElement("span", {className: "tab-mini-ui",id: id,onClick: onTabClick,title: name}, 
+        React.createElement("span", {className: "tab-mini-ui",id: id,onClick: (protocol == ProtocolTypes.SSH?onTabCopy:onTabClick),title: name}, 
             getIconElement(ip, icon, icoType)
         )
     );

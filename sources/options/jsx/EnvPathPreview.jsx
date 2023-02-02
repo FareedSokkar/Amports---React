@@ -4,9 +4,17 @@ function EnvPathPreview(props){
     function getTemplateByIp(){
         switch(ip){
             case ipTypes.Master:
-                return `{master-ip}/${path}`;
+                if(protocol == ProtocolTypes.SSH){
+                    return `${path}@{master-ip}`;
+                }else{
+                    return `{master-ip}/${path}`;
+                }
             case ipTypes.User:
-                return `{user-ip}/${path}`;
+                if(protocol == ProtocolTypes.SSH){
+                    return `${path}@{user-ip}`;
+                }else{
+                    return `{user-ip}/${path}`;
+                }
             case ipTypes.ExternalLink:
                 return `${path}`;
             default:    
@@ -17,7 +25,7 @@ function EnvPathPreview(props){
     return (
         React.createElement("div", {className: "env-path-preview"},
             React.createElement("label", {className: "env-path-preview-protocol"}, protocol), 
-            React.createElement("label", {className: "env-path-preview-dash"}, "://"), 
+            React.createElement("label", {className: "env-path-preview-dash"}, protocol == ProtocolTypes.SSH?" ":"://"), 
             React.createElement("label", {className: "env-path-preview-host"}, getTemplateByIp())
         )
     );

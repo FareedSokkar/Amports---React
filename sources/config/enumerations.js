@@ -7,6 +7,7 @@ const ipTypes = {
     Master: "master",
     User: "user",
     ExternalLink: "external",
+    CopyNode:"copy_node",
     ToolBlock: "gt_block",
     ToolBuild: "gt_build"
 }
@@ -66,4 +67,5 @@ const ProtocolTypes = {
     HTTPS: "https",
     HTTP: "http",
     FTP: "ftp",
+    SSH: "ssh",
 }
