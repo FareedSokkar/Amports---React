@@ -17,7 +17,9 @@ const buttonsText = {
 }
 const IconsFontAwesome ={
     Trash: "trash",
-    WheelChair: "wheelchair-alt"
+    WheelChair: "wheelchair-alt",
+    AngleDown: "angle-down",
+    AngleUp: "angle-up"
 }
 const IconSize ={
     Small: "small",

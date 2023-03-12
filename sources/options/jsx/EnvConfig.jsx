@@ -1,5 +1,5 @@
 function EnvConfig(props){
-    const {type,isEditable,title,list,innerHtml_block,innerHtml_build,changeCurrentConfig} = props;
+    const {type,isEditable,title,list,innerHtml_block,innerHtml_build,isToggled,changeCurrentConfig} = props;
     
 
     function getConfigPerType(type){
@@ -15,12 +15,14 @@ function EnvConfig(props){
                     changeKey: "title",
                     setInputValue: changeCurrentConfig
                 }));
-                configList.push(React.createElement(EnvPathsList,{
-                    list: list,
-                    isEditable: isEditable,
-                    changeCurrentConfig: changeCurrentConfig,
-                    type:type
-                }));
+                if(isToggled){
+                    configList.push(React.createElement(EnvPathsList,{
+                        list: list,
+                        isEditable: isEditable,
+                        changeCurrentConfig: changeCurrentConfig,
+                        type:type
+                    }));
+                }
                 if(type == EnviromentTypes.Tools){
                     // Add Build Tool List
                     configList.push(

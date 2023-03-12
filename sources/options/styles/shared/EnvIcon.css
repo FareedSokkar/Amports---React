@@ -1,6 +1,9 @@
 .env-icon{
     float: right;
 }
+.env-icon-left{
+    float: left;
+}
 .env-icon-icon{
     color: #275EFE
 }

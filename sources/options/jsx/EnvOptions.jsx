@@ -3,6 +3,7 @@ function EnvOptions(props){
     const [isEditable,setIsEditable] = React.useState(preDefined.type == "");
     const [currentChange,setCurrentChange] = React.useState(preDefined);
     const [isHidden,setIsHidden] = React.useState(true);
+    const [isToggled,setIsToggled] = React.useState(false);
 
     function onIdChange(key,value){
         let obj = Object.assign({},currentChange);
@@ -144,8 +145,19 @@ function EnvOptions(props){
         setDataForm(newDataForm);
     }
 
+    function setIsToggledByClick(e){
+        setIsToggled(!isToggled);
+    }
+
     return (
         React.createElement("div",{className:"env-options"},
+            React.createElement(EnvIcon,{
+                onClick: setIsToggledByClick, 
+                icon: (isToggled?IconsFontAwesome.AngleDown:IconsFontAwesome.AngleUp),
+                isLeft:true,
+                size: IconSize.Large,
+                isDisabled: false
+            }),
             React.createElement(EnvIcon,{
                 onClick: onDeleteIconClick, 
                 icon: IconsFontAwesome.Trash,
@@ -179,6 +191,7 @@ function EnvOptions(props){
                 type:currentChange.type,
                 isEditable: isEditable,
                 ...currentChange.configration,
+                isToggled: isToggled,
                 changeCurrentConfig:changeCurrentConfig
             }),
             React.createElement(EnvButton,{
